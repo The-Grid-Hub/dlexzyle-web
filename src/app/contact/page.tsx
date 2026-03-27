@@ -37,33 +37,34 @@ export default function ContactPage() {
                 Get In Touch
               </h3>
               <p className="mt-4 leading-relaxed text-text-muted">
-                Whether you need a vehicle for a day, a week, or longer — we're
-                here to help. Reach us through any of the channels below.
+                Whether you need a vehicle for a day, a week, or longer —
+                we&apos;re here to help. Reach us through any of the channels
+                below.
               </p>
 
               <dl className="mt-8 space-y-5 text-sm">
                 <div>
                   <dt className="font-semibold text-text-primary">Phone</dt>
-                  <dd className="mt-1 text-text-muted">+234 800 000 0000</dd>
+                  <dd className="mt-1 text-text-muted"><a href="tel:+2348065575378" className="text-brand-green hover:underline">+234 806 557 5378</a></dd>
                 </div>
                 <div>
                   <dt className="font-semibold text-text-primary">Email</dt>
                   <dd className="mt-1 text-text-muted">
-                    info@dlexzyle.com
+                    <a href="mailto:dlexzyleenterprise@gmail.com" className="text-brand-green hover:underline">
+                      dlexzyleenterprise@gmail.com
+                    </a>
                   </dd>
                 </div>
                 <div>
                   <dt className="font-semibold text-text-primary">Address</dt>
-                  <dd className="mt-1 text-text-muted">
-                    Lagos, Nigeria
-                  </dd>
+                  <dd className="mt-1 text-text-muted">Asaba, Delta State, Nigeria</dd>
                 </div>
               </dl>
 
               <div className="mt-8">
                 <Button
-                  href="https://wa.me/2348000000000"
-                  variant="whatsapp"
+                  href="https://wa.me/2348065575378"
+                  variant="primary"
                   aria-label="Chat on WhatsApp"
                 >
                   <WhatsAppIcon />
@@ -74,10 +75,7 @@ export default function ContactPage() {
 
             {/* Form */}
             <div>
-              <form
-                className="grid gap-6"
-                aria-label="Contact form"
-              >
+              <form className="grid gap-6" aria-label="Contact form">
                 <div>
                   <label htmlFor="contactName" className={labelBase}>
                     Name
