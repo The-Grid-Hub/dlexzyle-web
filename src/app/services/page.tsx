@@ -125,7 +125,7 @@ export default function ServicesPage() {
               <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-green">
                 Contact Us
               </Button>
-              <Button href="https://wa.me/2348000000000" variant="primary" aria-label="Chat on WhatsApp">
+              <Button href="https://wa.me/2348065575378" variant="primary" aria-label="Chat on WhatsApp">
                 <WhatsAppIcon />
                 Chat on WhatsApp
               </Button>
