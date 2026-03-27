@@ -1,0 +1,21 @@
+{
+  "name": "D'Lexzyle Enterprises",
+  "short_name": "D'Lexzyle",
+  "description": "Logistics and dependable car hire solutions across Nigeria.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/logo_.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

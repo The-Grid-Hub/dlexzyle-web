@@ -14,6 +14,34 @@ export const metadata: Metadata = {
   title: "D'Lexzyle Enterprises — Logistics & Services",
   description:
     "D'Lexzyle Enterprise provides dependable car hire solutions for individuals, corporate organisations, government agencies, and NGOs across Nigeria.",
+  icons: {
+    icon: [
+      { url: "/logo_.png", type: "image/png" },
+      { url: "/logo_.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo_.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/logo_.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/logo_.png"],
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    title: "D'Lexzyle Enterprises — Logistics & Services",
+    description:
+      "Dependable car hire and logistics solutions for individuals, organisations, agencies, and NGOs across Nigeria.",
+    images: [{ url: "/logo_.png", width: 512, height: 512, alt: "D'Lexzyle Enterprises logo" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "D'Lexzyle Enterprises — Logistics & Services",
+    description:
+      "Dependable car hire and logistics solutions for individuals, organisations, agencies, and NGOs across Nigeria.",
+    images: ["/logo_.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
