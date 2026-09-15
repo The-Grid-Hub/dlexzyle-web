@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "D'Lexzyle Enterprises — Logistics & Services",
   description:
-    "D'Lexzyle Enterprise provides dependable car hire solutions for individuals, corporate organisations, government agencies, and NGOs across Nigeria.",
+    "D'Lexzyle Enterprises provides car hire and vehicle leasing for individuals, companies, government agencies and NGOs in South-South and South-East Nigeria.",
   icons: {
     icon: [
       { url: "/logo_.png", type: "image/png" },
