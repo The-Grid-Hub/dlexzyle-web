@@ -1,5 +1,5 @@
 export const site = {
-  name: "D'Lexzyle Enterprises",
+  name: "D'Lexzyle Enterprise",
   /**
    * Live origin, no trailing slash. Single source of truth for `metadataBase`,
    * canonical URLs, `sitemap.ts`, `robots.ts` and the JSON-LD in `StructuredData`.

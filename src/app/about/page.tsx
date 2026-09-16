@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Our Asaba Car Hire Company",
   description:
-    "D'Lexzyle Enterprises is a car hire and vehicle leasing company based in Asaba, Delta State, serving South-South and South-East Nigeria.",
+    "D'Lexzyle Enterprise is a car hire and vehicle leasing company based in Asaba, Delta State, serving South-South and South-East Nigeria.",
   alternates: { canonical: "/about" },
 };
 

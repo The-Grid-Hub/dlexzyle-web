@@ -36,7 +36,7 @@ export default function Hero() {
                 aria-label="Contact us on WhatsApp"
               >
                 <WhatsAppIcon />
-                Contact Us
+                Chat on WhatsApp
               </Button>
             </div>
           </div>

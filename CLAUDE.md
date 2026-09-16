@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Marketing site for D'Lexzyle Enterprises, a car hire and vehicle leasing business in Asaba, Delta State, Nigeria. It is a small, fully static Next.js site: no backend, no API routes, no database, no env vars.
+Marketing site for D'Lexzyle Enterprise, a car hire and vehicle leasing business in Asaba, Delta State, Nigeria. It is a small, fully static Next.js site: no backend, no API routes, no database, no env vars.
 
 ## Commands
 
@@ -21,7 +21,7 @@ There is no test framework. To verify a change, run `npm run lint` and `npm run 
 ## Stack notes
 
 - **Next.js 16 App Router + React 19.** Routes are in `src/app/<route>/page.tsx`. Each sub-page exports its own `metadata`; the home page inherits from the root `layout.tsx`. The layout also wraps every page in `Navbar` / `<main>` / `Footer` and holds the site-wide OG, icon and manifest settings.
-- **SEO.** The root layout sets `metadataBase` from `site.url`, so every OG/canonical URL in page metadata is written **relative** (`"/services"`) and resolves to an absolute one at build time. It also sets a title `template` of `"%s | D'Lexzyle Enterprises"`, so a sub-page title is just its own part — don't repeat the business name. Every page must set `alternates: { canonical: "/<route>" }`. `src/app/sitemap.ts` and `src/app/robots.ts` generate `/sitemap.xml` and `/robots.txt`; `StructuredData` renders the `AutoRental` (LocalBusiness) JSON-LD once from the layout. It deliberately omits opening hours — don't add them until the real ones are confirmed.
+- **SEO.** The root layout sets `metadataBase` from `site.url`, so every OG/canonical URL in page metadata is written **relative** (`"/services"`) and resolves to an absolute one at build time. It also sets a title `template` of `"%s | D'Lexzyle Enterprise"`, so a sub-page title is just its own part — don't repeat the business name. Every page must set `alternates: { canonical: "/<route>" }`. `src/app/sitemap.ts` and `src/app/robots.ts` generate `/sitemap.xml` and `/robots.txt`; `StructuredData` renders the `AutoRental` (LocalBusiness) JSON-LD once from the layout. It deliberately omits opening hours — don't add them until the real ones are confirmed.
 - **Tailwind CSS v4, configured in CSS.** There is no `tailwind.config.*`. Brand tokens are defined in `@theme inline` in `src/app/globals.css` and used as utilities: `brand-green`, `brand-dark`, `brand-light`, `text-primary`, `text-muted`. Two colours are hardcoded hex values rather than tokens: the gold accent `#c8a84b` in `Hero` and WhatsApp green `#25D366` in `Button`. Buttons and inputs use `rounded-[10px]`; cards use `rounded-[12px]`.
 - The `@/*` path alias maps to `src/*`.
 - Components are server components by default. Only add `"use client"` where state or browser APIs are needed (currently `Navbar`, `QuoteForm`, `ContactForm`).

@@ -10,7 +10,7 @@ import { site, whatsappUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Our Asaba Car Hire Team",
   description:
-    "Call, email or WhatsApp D'Lexzyle Enterprises in Asaba, Delta State for car hire enquiries, bookings and support.",
+    "Call, email or WhatsApp D'Lexzyle Enterprise in Asaba, Delta State for car hire enquiries, bookings and support.",
   alternates: { canonical: "/contact" },
 };
 

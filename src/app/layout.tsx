@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   // absolute one, which crawlers require. Driven by `site.url`.
   metadataBase: new URL(site.url),
   title: {
-    default: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprises",
-    template: "%s | D'Lexzyle Enterprises",
+    default: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprise",
+    template: "%s | D'Lexzyle Enterprise",
   },
   description:
-    "Car hire and vehicle leasing in Asaba, Delta State. D'Lexzyle Enterprises serves individuals, companies, government agencies and NGOs across South-South and South-East Nigeria.",
+    "Car hire and vehicle leasing in Asaba, Delta State. D'Lexzyle Enterprise serves individuals, companies, government agencies and NGOs across South-South and South-East Nigeria.",
   alternates: {
     canonical: "/",
   },
@@ -36,18 +36,18 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprises",
+    title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprise",
     description:
       "Car hire and vehicle leasing for individuals, organisations, agencies and NGOs across South-South and South-East Nigeria.",
     url: "/",
     siteName: site.name,
     locale: "en_NG",
-    images: [{ url: "/logo_.png", width: 512, height: 512, alt: "D'Lexzyle Enterprises logo" }],
+    images: [{ url: "/logo_.png", width: 512, height: 512, alt: "D'Lexzyle Enterprise logo" }],
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprises",
+    title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprise",
     description:
       "Car hire and vehicle leasing for individuals, organisations, agencies and NGOs across South-South and South-East Nigeria.",
     images: ["/logo_.png"],
