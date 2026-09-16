@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 import PhotoBanner from "@/components/PhotoBanner";
 import PhotoCard from "@/components/PhotoCard";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-import { photos } from "@/lib/images";
+import { photos, type Photo } from "@/lib/images";
 import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ const serviceCategories = [
   },
   {
     title: "Private Car Hire",
-    image: photos.airportVan,
+    image: [photos.privateHire, photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo, Photo],
     bullets: [
       "Personal travel",
       "Family movement",
@@ -123,10 +123,6 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-green">
                 Contact Us
-              </Button>
-              <Button href={whatsappUrl()} variant="primary" aria-label="Chat on WhatsApp">
-                <WhatsAppIcon />
-                Chat on WhatsApp
               </Button>
             </div>
           </div>

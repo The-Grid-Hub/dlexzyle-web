@@ -63,9 +63,8 @@ export default function ContactForm() {
         />
       </Field>
 
-      <Button type="submit" variant="whatsapp" className="w-full">
-        <WhatsAppIcon />
-        Send via WhatsApp
+      <Button type="submit" variant="primary" className="w-full">
+        Send
       </Button>
 
       {message && <LeadSentNotice message={message} subject={SUBJECT} />}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Container from "@/components/Container";
 import PhotoBanner from "@/components/PhotoBanner";
+import PhotoMosaic from "@/components/PhotoMosaic";
 import { photos } from "@/lib/images";
 import { site } from "@/lib/site";
 
@@ -53,15 +53,16 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-light lg:order-first lg:aspect-[4/5]">
-              <Image
-                src={photos.highwayLagos.src}
-                alt={photos.highwayLagos.alt}
-                fill
-                sizes="(min-width: 1024px) 560px, 100vw"
-                placeholder="blur"
-                className="object-cover"
-                style={{ objectPosition: photos.highwayLagos.position }}
+            <div className="mx-auto w-full max-w-lg lg:order-first lg:max-w-none">
+              <PhotoMosaic
+                caption="Airport runs, city trips and long-distance travel."
+                images={[
+                  photos.highwayLagos,
+                  photos.corporate,
+                  photos.privateHire,
+                  photos.airportVan,
+                  photos.fleetSienna,
+                ]}
               />
             </div>
           </div>

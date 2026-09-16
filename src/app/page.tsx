@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Partners from "@/components/Partners";
 import ServicesPreview from "@/components/ServicesPreview";
 import PhotoBanner from "@/components/PhotoBanner";
 import Button from "@/components/Button";
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Partners />
       <ServicesPreview />
       <PhotoBanner
         title="Based in Asaba, Delta State"

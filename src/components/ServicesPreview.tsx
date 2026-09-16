@@ -2,7 +2,7 @@ import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 import Button from "./Button";
 import PhotoCard from "./PhotoCard";
-import { photos } from "@/lib/images";
+import { photos, type Photo } from "@/lib/images";
 
 const services = [
   {
@@ -15,7 +15,7 @@ const services = [
     title: "Private Car Hire",
     description:
       "Comfortable vehicles for personal travel, family movement, airport transfers, and short or long trips.",
-    image: photos.airportVan,
+    image: [photos.privateHire, photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo, Photo],
   },
   {
     title: "Vehicle Leasing",

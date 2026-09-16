@@ -166,9 +166,8 @@ export default function QuoteForm() {
       </Field>
 
       <div className="sm:col-span-2">
-        <Button type="submit" variant="whatsapp" className="w-full">
-          <WhatsAppIcon />
-          Send via WhatsApp
+        <Button type="submit" variant="primary" className="w-full">
+          Request Quote
         </Button>
       </div>
 
