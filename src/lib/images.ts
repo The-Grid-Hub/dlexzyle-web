@@ -7,7 +7,6 @@ import fleetSeater from "@/assets/images/fleet-seater.jpg";
 import fleetSienna from "@/assets/images/fleet-sienna.jpg";
 import heroDriver from "@/assets/images/hero-driver.jpg";
 import highwayLagos from "@/assets/images/highway-lagos.jpg";
-import privateHire from "@/assets/images/private-hire.jpg";
 import privateMinivan from "@/assets/images/private-minivan.jpg";
 import privateSuv from "@/assets/images/private-suv.jpg";
 import roadAbuja from "@/assets/images/road-abuja.jpg";
@@ -33,8 +32,8 @@ export type Photo = {
  * No photo here may show a readable number plate -- a registration is personal
  * data. Check the full-resolution file, front and rear, before adding it.
  *
- * The private* entries are the three panels of the Private Car Hire collage,
- * one per vehicle type. Their positions are tuned for a square cell.
+ * privateMinivan and privateSuv are the two panels of the Private Car Hire
+ * collage, one per vehicle type. Their positions are tuned for a portrait cell.
  */
 export const photos = {
   heroDriver: {
@@ -53,10 +52,10 @@ export const photos = {
   },
   corporate: {
     src: corporate,
-    alt: "View from the back seat as a driver heads onto an airport road",
-    position: "center 33%",
-    credit: "Chethan KVS",
-    creditUrl: "https://unsplash.com/photos/I_L--GSnAuI",
+    alt: "Executive in a suit taking a call in the back seat of a car",
+    position: "62% center",
+    credit: "Emmanuel Ondoua",
+    creditUrl: "https://www.pexels.com/photo/a-man-talking-on-the-smartphone-6841078/",
   },
   airportVan: {
     src: airportVan,
@@ -64,14 +63,6 @@ export const photos = {
     position: "center 60%",
     credit: "Yazid N",
     creditUrl: "https://unsplash.com/photos/XDw-MK_Kp6Q",
-  },
-  privateHire: {
-    src: privateHire,
-    alt: "Man in a white agbada stepping up to a white saloon car on a city street",
-    position: "24% center",
-    credit: "Harrun Muhammad",
-    creditUrl:
-      "https://www.pexels.com/photo/traditional-attire-and-modern-car-in-urban-setting-36684840/",
   },
   privateMinivan: {
     src: privateMinivan,

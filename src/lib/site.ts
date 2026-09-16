@@ -1,10 +1,21 @@
 export const site = {
   name: "D'Lexzyle Enterprises",
+  /**
+   * Live origin, no trailing slash. Single source of truth for `metadataBase`,
+   * canonical URLs, `sitemap.ts`, `robots.ts` and the JSON-LD in `StructuredData`.
+   * TODO: replace with the real domain before going live — a wrong value here
+   * points every canonical tag at a site that doesn't exist.
+   */
+  url: "https://dlexzyle.com",
   whatsapp: "2348065575378",
   phoneDisplay: "+234 806 557 5378",
   phoneHref: "tel:+2348065575378",
   email: "dlexzyleenterprise@gmail.com",
   address: "Asaba, Delta State, Nigeria",
+  /** Broken out for the PostalAddress in the LocalBusiness JSON-LD. */
+  addressLocality: "Asaba",
+  addressRegion: "Delta State",
+  addressCountry: "NG",
 } as const;
 
 export function whatsappUrl(message?: string) {

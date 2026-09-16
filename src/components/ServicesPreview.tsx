@@ -15,7 +15,7 @@ const services = [
     title: "Private Car Hire",
     description:
       "Comfortable vehicles for personal travel, family movement, airport transfers, and short or long trips.",
-    image: [photos.privateHire, photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo, Photo],
+    image: [photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo],
   },
   {
     title: "Vehicle Leasing",

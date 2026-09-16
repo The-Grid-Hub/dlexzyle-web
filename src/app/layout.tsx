@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
+import { site } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -11,9 +13,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "D'Lexzyle Enterprises — Logistics & Services",
+  // Makes every relative URL below (OG images, canonicals) resolve to an
+  // absolute one, which crawlers require. Driven by `site.url`.
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprises",
+    template: "%s | D'Lexzyle Enterprises",
+  },
   description:
-    "D'Lexzyle Enterprises provides car hire and vehicle leasing for individuals, companies, government agencies and NGOs in South-South and South-East Nigeria.",
+    "Car hire and vehicle leasing in Asaba, Delta State. D'Lexzyle Enterprises serves individuals, companies, government agencies and NGOs across South-South and South-East Nigeria.",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/logo_.png", type: "image/png" },
@@ -25,17 +36,20 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "D'Lexzyle Enterprises — Logistics & Services",
+    title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprises",
     description:
-      "Dependable car hire and logistics solutions for individuals, organisations, agencies, and NGOs across Nigeria.",
+      "Car hire and vehicle leasing for individuals, organisations, agencies and NGOs across South-South and South-East Nigeria.",
+    url: "/",
+    siteName: site.name,
+    locale: "en_NG",
     images: [{ url: "/logo_.png", width: 512, height: 512, alt: "D'Lexzyle Enterprises logo" }],
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "D'Lexzyle Enterprises — Logistics & Services",
+    title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprises",
     description:
-      "Dependable car hire and logistics solutions for individuals, organisations, agencies, and NGOs across Nigeria.",
+      "Car hire and vehicle leasing for individuals, organisations, agencies and NGOs across South-South and South-East Nigeria.",
     images: ["/logo_.png"],
   },
   robots: {
@@ -50,8 +64,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-NG">
       <body className={`${inter.variable} antialiased`}>
+        <StructuredData />
         <Navbar />
         <main>{children}</main>
         <Footer />
