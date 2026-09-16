@@ -64,7 +64,7 @@ export default function ContactForm() {
       </Field>
 
       <Button type="submit" variant="primary" className="w-full">
-        Send
+        Send Message
       </Button>
 
       {message && <LeadSentNotice message={message} subject={SUBJECT} />}

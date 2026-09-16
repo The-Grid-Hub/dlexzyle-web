@@ -167,7 +167,7 @@ export default function QuoteForm() {
 
       <div className="sm:col-span-2">
         <Button type="submit" variant="primary" className="w-full">
-          Request Quote
+          Submit Quote Request
         </Button>
       </div>
 
