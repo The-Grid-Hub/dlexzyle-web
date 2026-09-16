@@ -7,7 +7,7 @@ import { photos } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Request a Car Hire Quote",
   description:
-    "Request a car hire quote in Asaba, Delta State. Send your trip details to D'Lexzyle Enterprises and we'll get back to you.",
+    "Request a car hire quote in Asaba, Delta State. Send your trip details to D'Lexzyle Enterprise and we'll get back to you.",
   alternates: { canonical: "/request-quote" },
 };
 

@@ -15,7 +15,7 @@ export default function Footer() {
       <Container>
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
           <p className="text-sm font-semibold text-brand-green">
-            D&apos;Lexzyle Enterprises
+            D&apos;Lexzyle Enterprise
           </p>
 
           <nav className="flex flex-wrap justify-center gap-6" aria-label="Footer navigation">
@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 text-center text-xs text-text-muted">
-          &copy; {new Date().getFullYear()} D&apos;Lexzyle Enterprises. All
+          &copy; {new Date().getFullYear()} D&apos;Lexzyle Enterprise. All
           rights reserved.
         </p>
       </Container>

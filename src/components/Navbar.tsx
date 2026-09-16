@@ -23,16 +23,16 @@ export default function Navbar() {
     >
       <Container className="flex h-full items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2" aria-label="D'Lexzyle Enterprises home">
+        <Link href="/" className="flex items-center gap-2" aria-label="D'Lexzyle Enterprise home">
           <Image
             src="/logo_.png"
-            alt="D'Lexzyle Enterprises logo"
+            alt="D'Lexzyle Enterprise logo"
             width={36}
             height={36}
             className="rounded-md"
           />
           <span className="text-lg font-bold text-brand-green whitespace-nowrap">
-            D&apos;Lexzyle Enterprises
+            D&apos;Lexzyle Enterprise
           </span>
         </Link>
 
