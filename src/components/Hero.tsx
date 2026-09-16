@@ -2,6 +2,8 @@ import Image from "next/image";
 import Container from "./Container";
 import Button from "./Button";
 import WhatsAppIcon from "./WhatsAppIcon";
+import { photos } from "@/lib/images";
+import { site, whatsappUrl } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -16,17 +18,16 @@ export default function Hero() {
               Partner
             </h1>
             <p className="mt-4 text-lg font-medium text-text-primary">
-              Comfortable, well-maintained vehicles with professional drivers
-              you can trust.
+              Clean, well-maintained vehicles and professional drivers.
             </p>
             <p className="mt-4 leading-relaxed text-text-muted">
-              D&apos;lexzyle Enterprise delivers reliable car hire, supply &amp;
-              delivery services across the South-South and South-East regions —
-              serving government agencies, banks, hotels, NGOs and individuals.
+              {site.name} provides car hire, supply and delivery for government
+              agencies, banks, hotels, NGOs and individuals. We&apos;re based in{" "}
+              {site.address}.
             </p>
             <div className="mt-8">
               <Button
-                href="https://wa.me/2348065575378"
+                href={whatsappUrl()}
                 variant="primary"
                 aria-label="Chat on WhatsApp"
               >

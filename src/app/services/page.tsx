@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
+import PhotoBanner from "@/components/PhotoBanner";
+import PhotoCard from "@/components/PhotoCard";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { photos, type Photo } from "@/lib/images";
+import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services — D'Lexzyle Enterprises",
@@ -13,6 +17,7 @@ export const metadata: Metadata = {
 const serviceCategories = [
   {
     title: "Corporate & Institutional Car Hire",
+    image: photos.corporate,
     bullets: [
       "Government agencies",
       "Banks & financial institutions",
@@ -23,6 +28,7 @@ const serviceCategories = [
   },
   {
     title: "Private Car Hire",
+    image: [photos.privateHire, photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo, Photo],
     bullets: [
       "Personal travel",
       "Family movement",
@@ -37,51 +43,50 @@ const fleet = [
   {
     title: "Toyota Saloon Vehicles",
     description:
-      "Clean, comfortable saloon cars ideal for executive travel, airport runs, and day-to-day movement.",
+      "Clean, comfortable saloon cars for executive travel, airport runs and day-to-day movement.",
+    image: photos.fleetSaloon,
   },
   {
     title: "Sienna Space Buses",
     description:
-      "Spacious Toyota Sienna buses perfect for family trips, group travel, and airport transfers.",
+      "Toyota Sienna buses for family trips, group travel and airport transfers.",
+    image: photos.fleetSienna,
   },
   {
     title: "6/7-Seater Passenger Vehicles",
     description:
-      "Versatile multi-passenger vehicles suited for team transport, event shuttles, and large group movement.",
+      "Six- and seven-seat vehicles for team transport, event shuttles and larger groups.",
+    image: photos.fleetSeater,
   },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Page hero */}
-      <section className="bg-brand-light py-16 sm:py-20">
-        <Container>
-          <SectionHeading
-            title="Car Hire & Vehicle Leasing"
-            subtitle="Dependable fleet solutions tailored for every need — corporate, institutional, or private."
-          />
-        </Container>
-      </section>
+      <PhotoBanner
+        as="h1"
+        title="Car Hire & Vehicle Leasing"
+        subtitle="Vehicles with professional drivers for corporate, institutional and private clients."
+        image={photos.roadAbuja}
+      />
 
       {/* Service categories */}
       <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-8 md:grid-cols-2">
             {serviceCategories.map((cat) => (
-              <div
+              <PhotoCard
                 key={cat.title}
-                className="rounded-[12px] border border-gray-100 bg-white p-8 shadow-sm"
+                title={cat.title}
+                image={cat.image}
+                sizes="(min-width: 768px) 560px, 100vw"
               >
-                <h3 className="text-xl font-bold text-brand-green">
-                  {cat.title}
-                </h3>
                 <ul className="mt-4 list-inside list-disc space-y-2 text-text-muted">
                   {cat.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
-              </div>
+              </PhotoCard>
             ))}
           </div>
         </Container>
@@ -92,21 +97,15 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             title="Our Fleet"
-            subtitle="A selection of well-maintained vehicles ready to serve you."
+            subtitle="Three vehicle types to match your group size."
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {fleet.map((v) => (
-              <div
-                key={v.title}
-                className="rounded-[12px] bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <h3 className="text-lg font-semibold text-brand-green">
-                  {v.title}
-                </h3>
+              <PhotoCard key={v.title} title={v.title} image={v.image}>
                 <p className="mt-2 text-sm leading-relaxed text-text-muted">
                   {v.description}
                 </p>
-              </div>
+              </PhotoCard>
             ))}
           </div>
         </Container>
@@ -118,16 +117,12 @@ export default function ServicesPage() {
           <div className="rounded-[12px] bg-brand-green px-8 py-12 text-center text-white sm:px-12">
             <h2 className="text-3xl font-bold">Ready to Book a Vehicle?</h2>
             <p className="mx-auto mt-3 max-w-md text-white/80">
-              Get in touch with us today. We&apos;ll match you with the right
-              vehicle for your needs.
+              Tell us where you&apos;re going and how many people are
+              travelling, and we&apos;ll suggest a vehicle.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button href="/contact" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-green">
                 Contact Us
-              </Button>
-              <Button href="https://wa.me/2348065575378" variant="primary" aria-label="Chat on WhatsApp">
-                <WhatsAppIcon />
-                Chat on WhatsApp
               </Button>
             </div>
           </div>

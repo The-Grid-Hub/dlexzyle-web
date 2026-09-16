@@ -1,22 +1,27 @@
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 import Button from "./Button";
+import PhotoCard from "./PhotoCard";
+import { photos, type Photo } from "@/lib/images";
 
 const services = [
   {
     title: "Corporate & Institutional Car Hire",
     description:
-      "Reliable fleet solutions for government agencies, banks, hotels, NGOs, and corporate teams.",
+      "Vehicles and drivers for government agencies, banks, hotels, NGOs and corporate teams.",
+    image: photos.corporate,
   },
   {
     title: "Private Car Hire",
     description:
       "Comfortable vehicles for personal travel, family movement, airport transfers, and short or long trips.",
+    image: [photos.privateHire, photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo, Photo],
   },
   {
     title: "Vehicle Leasing",
     description:
-      "Flexible vehicle leasing options tailored to your organisation's needs, with full maintenance support.",
+      "Long-term vehicle leases for organisations, with maintenance included.",
+    image: photos.roadAbuja,
   },
 ];
 
@@ -26,22 +31,16 @@ export default function ServicesPreview() {
       <Container>
         <SectionHeading
           title="Our Services"
-          subtitle="We deliver safe, comfortable, and timely transportation solutions across Nigeria."
+          subtitle="Short trips, long-distance travel and long-term leasing."
         />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-[12px] bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <h3 className="text-lg font-semibold text-brand-green">
-                {service.title}
-              </h3>
+            <PhotoCard key={service.title} title={service.title} image={service.image}>
               <p className="mt-2 text-sm leading-relaxed text-text-muted">
                 {service.description}
               </p>
-            </div>
+            </PhotoCard>
           ))}
         </div>
 
