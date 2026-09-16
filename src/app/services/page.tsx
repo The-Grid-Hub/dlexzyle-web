@@ -9,9 +9,10 @@ import { photos, type Photo } from "@/lib/images";
 import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services — D'Lexzyle Enterprises",
+  title: "Car Hire & Vehicle Leasing Services",
   description:
-    "Explore our car hire and vehicle leasing services for corporate, institutional, and private clients across Nigeria.",
+    "Car hire and vehicle leasing in Asaba for corporate, institutional and private clients — government agencies, banks, hotels and NGOs across South-South and South-East Nigeria.",
+  alternates: { canonical: "/services" },
 };
 
 const serviceCategories = [
@@ -28,7 +29,7 @@ const serviceCategories = [
   },
   {
     title: "Private Car Hire",
-    image: [photos.privateHire, photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo, Photo],
+    image: [photos.privateMinivan, photos.privateSuv] satisfies [Photo, Photo],
     bullets: [
       "Personal travel",
       "Family movement",

@@ -1,10 +1,12 @@
 import Image from "next/image";
 import type { Photo } from "@/lib/images";
 
+type Collage = [Photo, Photo] | [Photo, Photo, Photo];
+
 interface PhotoCardProps {
   title: string;
-  /** One photo, or three for a collage: a large panel on the left and two stacked on the right. */
-  image: Photo | [Photo, Photo, Photo];
+  /** One photo, or a collage of two or three. */
+  image: Photo | Collage;
   children: React.ReactNode;
   /** Defaults to a three-column grid inside the 1200px container. */
   sizes?: string;
@@ -24,6 +26,27 @@ function FillImage({ photo, sizes }: { photo: Photo; sizes: string }) {
   );
 }
 
+function CollageGrid({ photos, sizes }: { photos: Collage; sizes: string }) {
+  // Three photos make a 3x2 grid in a 3:2 frame, so every cell is square: a
+  // large panel on the left and two stacked on the right. Two photos split the
+  // same frame down the middle, giving each a portrait cell.
+  const three = photos.length === 3;
+  return (
+    <div
+      className={`grid aspect-[3/2] gap-0.5 ${three ? "grid-cols-3 grid-rows-2" : "grid-cols-2"}`}
+    >
+      {photos.map((photo, i) => (
+        <div
+          key={photo.src.src}
+          className={`relative bg-brand-light ${three && i === 0 ? "col-span-2 row-span-2" : ""}`}
+        >
+          <FillImage photo={photo} sizes={sizes} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function PhotoCard({
   title,
   image,
@@ -33,17 +56,7 @@ export default function PhotoCard({
   return (
     <div className="overflow-hidden rounded-[12px] bg-white shadow-sm">
       {Array.isArray(image) ? (
-        // A 3x2 grid in a 3:2 frame makes every cell square.
-        <div className="grid aspect-[3/2] grid-cols-3 grid-rows-2 gap-0.5">
-          {image.map((photo, i) => (
-            <div
-              key={photo.src.src}
-              className={`relative bg-brand-light ${i === 0 ? "col-span-2 row-span-2" : ""}`}
-            >
-              <FillImage photo={photo} sizes={sizes} />
-            </div>
-          ))}
-        </div>
+        <CollageGrid photos={image} sizes={sizes} />
       ) : (
         <div className="relative aspect-[3/2] bg-brand-light">
           <FillImage photo={image} sizes={sizes} />

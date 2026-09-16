@@ -8,9 +8,10 @@ import { photos } from "@/lib/images";
 import { site, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us — D'Lexzyle Enterprises",
+  title: "Contact Our Asaba Car Hire Team",
   description:
-    "Get in touch with D'Lexzyle Enterprises for car hire enquiries, bookings, and support.",
+    "Call, email or WhatsApp D'Lexzyle Enterprises in Asaba, Delta State for car hire enquiries, bookings and support.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
