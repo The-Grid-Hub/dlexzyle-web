@@ -16,8 +16,8 @@ export default function StructuredData() {
     "@id": `${site.url}/#business`,
     name: site.name,
     url: site.url,
-    image: `${site.url}/logo_.png`,
-    logo: `${site.url}/logo_.png`,
+    image: `${site.url}/logo-square.png`,
+    logo: `${site.url}/logo-square.png`,
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     description:

@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo_.png", type: "image/png" },
-      { url: "/logo_.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo_.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo-square.png", type: "image/png" },
+      { url: "/logo-square.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-square.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/logo_.png", sizes: "180x180", type: "image/png" }],
-    shortcut: ["/logo_.png"],
+    apple: [{ url: "/logo-square.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/logo-square.png"],
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: site.name,
     locale: "en_NG",
-    images: [{ url: "/logo_.png", width: 512, height: 512, alt: "D'Lexzyle Enterprise logo" }],
+    images: [{ url: "/logo-square.png", width: 512, height: 512, alt: "D'Lexzyle Enterprise logo" }],
     type: "website",
   },
   twitter: {
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprise",
     description:
       "Car hire and vehicle leasing for individuals, organisations, agencies and NGOs across South-South and South-East Nigeria.",
-    images: ["/logo_.png"],
+    images: ["/logo-square.png"],
   },
   robots: {
     index: true,
