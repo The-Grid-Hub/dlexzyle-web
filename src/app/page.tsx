@@ -1,25 +1,37 @@
 import Hero from "@/components/Hero";
-import Partners from "@/components/Partners";
-import ServicesPreview from "@/components/ServicesPreview";
-import PhotoBanner from "@/components/PhotoBanner";
-import Button from "@/components/Button";
-import { photos } from "@/lib/images";
+import AboutPanel from "@/components/AboutPanel";
+import Advantages from "@/components/Advantages";
+import ServicesStack from "@/components/ServicesStack";
+import FleetOverview from "@/components/FleetOverview";
+import Clients from "@/components/Clients";
+import HomeContact from "@/components/HomeContact";
+import PinVideo from "@/components/motion/PinVideo";
+import { videos } from "@/lib/videos";
 
+/**
+ * Two `relative isolate overflow-clip` containers each hold a pinned background video and the
+ * sections that scroll over it: the hero video sits behind the hero and the
+ * About panel; the footer video behind the clients and contact sections.
+ * The pinned video can't be hit-tested, so the first container tells the
+ * header it is dark with `data-header`.
+ */
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Partners />
-      <ServicesPreview />
-      <PhotoBanner
-        title="Based in Asaba, Delta State"
-        subtitle="Airport runs, trips within the city and long-distance travel across the South-South and South-East."
-        image={photos.highwayLagos}
-      >
-        <Button href="/request-quote" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-green">
-          Request a Quote
-        </Button>
-      </PhotoBanner>
+      <div className="relative isolate overflow-clip" data-header="dark">
+        <Hero />
+        <AboutPanel />
+      </div>
+
+      <Advantages />
+      <ServicesStack />
+      {/* <FleetOverview /> */}
+
+      <div className="relative isolate overflow-clip bg-brand-ink">
+        <PinVideo video={videos.footer} end="bottom bottom" overlayClassName="bg-brand-ink/60" />
+        <Clients />
+        <HomeContact />
+      </div>
     </>
   );
 }

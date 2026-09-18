@@ -12,14 +12,14 @@ export type Partner = PartnerBase &
         width: number;
         height: number;
       }
-    /** Organisations whose brand terms don't permit third-party logo use. */
+    /** Organisations listed by name only. */
     | { logo?: never; width?: never; height?: never }
   );
 
 /**
  * Organisations we've worked with, shown in the homepage trust strip. Logos are
- * the official files from each organisation's own website. Organisations whose
- * brand terms restrict third-party logo use are listed by name instead.
+ * the official files from each organisation's own website, rendered in
+ * grayscale until hovered. An organisation without a logo is listed by name.
  */
 export const partners = [
   {
@@ -37,10 +37,12 @@ export const partners = [
     height: 245,
   },
   {
-    // RTI's logo guide forbids recolouring their logo and asks third parties to
-    // request permission before using it. It does ask that the name be set in
-    // the surrounding text's font, which is exactly how we render it here.
+    // RTI's logo guide asks third parties to request permission before using
+    // the logo and forbids recolouring it; confirm permission before launch.
     name: "RTI International",
     url: "https://www.rti.org",
+    logo: "/partners/rti.svg",
+    width: 199,
+    height: 80,
   },
 ] satisfies Partner[];

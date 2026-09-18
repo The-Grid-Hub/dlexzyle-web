@@ -1,3 +1,6 @@
+import FadeBlock from "./motion/FadeBlock";
+import RevealText from "./motion/RevealText";
+
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
@@ -5,18 +8,42 @@ interface SectionHeadingProps {
   as?: "h1" | "h2";
   /** "inverse" is for headings that sit on a dark photo overlay. */
   tone?: "default" | "inverse";
+  align?: "center" | "left";
 }
 
-export default function SectionHeading({ title, subtitle, className = "", as: Heading = "h2", tone = "default" }: SectionHeadingProps) {
+/**
+ * A section title that springs in character by character as it scrolls into
+ * view, with an optional subtitle that fades in after it.
+ */
+export default function SectionHeading({
+  title,
+  subtitle,
+  className = "",
+  as = "h2",
+  tone = "default",
+  align = "left",
+}: SectionHeadingProps) {
   const inverse = tone === "inverse";
+  const centred = align === "center";
 
   return (
-    <div className={`text-center ${className}`}>
-      <Heading className={`text-3xl font-bold sm:text-4xl ${inverse ? "text-white" : "text-brand-green"}`}>
+    <div className={`${centred ? "text-center" : "text-left"} ${className}`}>
+      <RevealText
+        as={as}
+        className={`font-display text-balance text-[clamp(2.75rem,5vw,4.5rem)] ${inverse ? "text-white" : "text-text-primary"}`}
+      >
         {title}
-      </Heading>
+      </RevealText>
       {subtitle && (
-        <p className={`mx-auto mt-3 max-w-2xl ${inverse ? "text-white/85" : "text-text-muted"}`}>{subtitle}</p>
+        <FadeBlock>
+          <p
+            className={`${centred ? "mx-auto" : ""} mt-4 max-w-2xl text-pretty text-lg leading-relaxed ${
+              inverse ? "text-white/80" : "text-text-muted"
+            }`}
+          >
+            {subtitle}
+          </p>
+        </FadeBlock>
       )}
     </div>
   );

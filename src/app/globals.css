@@ -1,22 +1,225 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-green: #1F6B3A;
-  --color-brand-dark: #144B2A;
-  --color-brand-light: #E6F2EB;
-  --color-text-primary: #111827;
-  --color-text-muted: #6B7280;
-  --font-sans: var(--font-inter);
+  --color-brand-green: #1f6b3a;
+  --color-brand-dark: #144b2a;
+  /* Deep green-black for the hero overlay, footer and dark panels. */
+  --color-brand-ink: #0c1f14;
+  --color-brand-light: #e6f2eb;
+  /* Near-white green-grey for light panels and the header menu pill. */
+  --color-brand-mist: #f2f6f3;
+  /* Hairline rules and input borders. */
+  --color-brand-line: #d3e2d8;
+  --color-text-primary: #14261b;
+  --color-text-muted: #5b6b62;
+  --font-sans: var(--font-archivo);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/*
+ * Headline setting. Bebas Neue is a single-weight condensed face, so it is
+ * always uppercase, set tight, and never paired with a weight utility (faux
+ * bold is switched off below). Body copy stays Archivo at normal width.
+ */
+@utility font-display {
+  font-family: var(--font-bebas-neue), "Arial Narrow", Impact, sans-serif;
+  font-weight: 400;
+  font-synthesis-weight: none;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.005em;
 }
 
 body {
   background: #ffffff;
   color: var(--color-text-primary);
   font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Focus ring utility */
 *:focus-visible {
   outline: 2px solid var(--color-brand-green);
   outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion. Everything below is the static half of an animation whose moving
+ * half lives in src/components/motion or SiteMotion. The `js` class is added
+ * to <html> by the inline script in layout.tsx before first paint, so with
+ * JavaScript off nothing is ever hidden.
+ * ------------------------------------------------------------------------ */
+
+/* Split characters (SplitText) spring up from a flat line. */
+.char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.word {
+  display: inline-block;
+  white-space: nowrap;
+  clip-path: inset(-0.2em -0.1em -0.15em -0.1em);
+}
+
+/* Scroll-triggered headings stay hidden until the split is ready. */
+html.js [data-reveal] {
+  visibility: hidden;
+}
+
+/* Elements animated once on page load by SiteMotion. */
+html.js [data-intro="chars"] {
+  visibility: hidden;
+}
+html.js [data-intro="header"] {
+  transform: translateY(-105%);
+}
+html.js [data-intro="line"] {
+  width: 0;
+}
+html.js [data-intro="fade"] {
+  opacity: 0;
+}
+html.js [data-intro="rise"] {
+  transform: translateY(200%);
+}
+html.js [data-intro="slide"] {
+  transform: translateX(110%);
+}
+/* The hero video starts as a small rotated tile at the foot of the viewport. */
+html.js [data-intro="video"] {
+  top: 100%;
+  transform: translate(-50%, 0) scale(0.35) rotate(30deg);
+}
+html[data-intro="short"] .preloader {
+  display: none;
+}
+html.js .preloader__text {
+  visibility: hidden;
+}
+
+/* The roll-up hover on links and buttons: two copies, clipped, slide one line. */
+.text-hover__inner {
+  display: block;
+  position: relative;
+  clip-path: inset(0 -0.5em 0 -0.5em);
+  transition: transform 0.55s var(--ease-in-out-quart);
+}
+/* Flex, not block, so an icon inside a label stays on the same line
+   (Preflight makes <svg> display: block). */
+.text-hover__elem {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  white-space: nowrap;
+}
+.text-hover__elem-2 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+@media (hover: hover) {
+  .text-hover:hover .text-hover__inner,
+  .text-hover:focus-visible .text-hover__inner {
+    transform: translateY(-100%);
+  }
+}
+
+/* Buttons fill from the bottom on hover; the label sits above the fill. */
+.btn-fill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fill);
+  transform: translateY(101%);
+  transition: transform 0.55s var(--ease-in-out-quart);
+}
+@media (hover: hover) {
+  .btn-fill:hover::before,
+  .btn-fill:focus-visible::before {
+    transform: translateY(0);
+  }
+}
+
+/* Continuous marquee. Four copies of the text scroll a quarter of the track. */
+.ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 24s linear infinite;
+}
+.ticker__item {
+  padding-right: 6rem;
+}
+@keyframes ticker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Hero services slider: Swiper's progress bar, in brand colours. */
+.hero-slider .swiper-pagination-progressbar {
+  position: relative;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-brand-ink) 15%, transparent);
+}
+.hero-slider .swiper-pagination-progressbar-fill {
+  background: var(--color-brand-green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  .ticker {
+    animation: none;
+  }
+  .preloader,
+  .plug {
+    display: none !important;
+  }
+  html.js [data-reveal],
+  html.js [data-intro="chars"],
+  html.js .preloader__text {
+    visibility: visible;
+  }
+  html.js [data-intro="header"],
+  html.js [data-intro="rise"],
+  html.js [data-intro="slide"] {
+    transform: none;
+  }
+  html.js [data-intro="line"] {
+    width: 100%;
+  }
+  html.js [data-intro="fade"] {
+    opacity: 1;
+  }
+  html.js [data-intro="video"] {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Page curtain: parked above the viewport until SiteMotion brings it down. */
+.plug {
+  transform: translateY(-105%);
+}
+
+/* The stacked service cards overlap until GSAP has placed them, so hide the
+   frame until then; without JavaScript (no `js` class) they show as a column. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  html.js .services-stack {
+    visibility: hidden;
+  }
 }
