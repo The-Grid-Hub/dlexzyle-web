@@ -175,6 +175,26 @@ html.js .preloader__text {
   background: var(--color-brand-green);
 }
 
+/* ---------------------------------------------------------------------------
+ * Phone menu (Navbar). The panel's wipe (clip-path + visibility) is set as
+ * utilities on the element itself in Navbar.tsx; this is only the stagger of
+ * its rows, which rise in one after another once the panel is open. `--i` on
+ * each row sets its place in the sequence. Purely decorative: without these
+ * rules the rows simply show.
+ * ------------------------------------------------------------------------ */
+.mobile-menu__item {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.4s ease,
+    transform 0.7s var(--ease-out-expo);
+}
+.mobile-menu[data-open="true"] .mobile-menu__item {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(0.25s + var(--i, 0) * 0.06s);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -184,6 +204,9 @@ html.js .preloader__text {
   }
   .ticker {
     animation: none;
+  }
+  .mobile-menu__item {
+    transition-delay: 0s !important;
   }
   .preloader,
   .plug {
