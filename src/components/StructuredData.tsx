@@ -21,7 +21,7 @@ export default function StructuredData() {
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     description:
-      "Car hire and vehicle leasing for individuals, companies, government agencies and NGOs across South-South and South-East Nigeria.",
+      "Safe, reliable car hire and vehicle leasing with a vetted driver on every hire, for individuals, companies, government agencies and NGOs across the South-South and South-East, and across Nigeria.",
     address: {
       "@type": "PostalAddress",
       addressLocality: site.addressLocality,
@@ -33,6 +33,7 @@ export default function StructuredData() {
       { "@type": "AdministrativeArea", name: "Delta State" },
       { "@type": "AdministrativeArea", name: "South-South Nigeria" },
       { "@type": "AdministrativeArea", name: "South-East Nigeria" },
+      { "@type": "Country", name: "Nigeria" },
     ],
     sameAs: [`https://wa.me/${site.whatsapp}`],
   };

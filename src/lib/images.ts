@@ -58,9 +58,10 @@ export const photos = {
     creditUrl: "https://www.pexels.com/photo/a-man-talking-on-the-smartphone-6841078/",
   },
   airportVan: {
+    // Cropped from the original to remove a legible plate on a neighbouring car.
     src: airportVan,
     alt: "White passenger van parked at an airport terminal",
-    position: "center 60%",
+    position: "center 55%",
     credit: "Yazid N",
     creditUrl: "https://unsplash.com/photos/XDw-MK_Kp6Q",
   },

@@ -29,13 +29,13 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="grid gap-6" aria-label="Contact form" onSubmit={handleSubmit}>
+    <form className="grid gap-5" aria-label="Contact form" onSubmit={handleSubmit}>
       <Field label="Name" htmlFor="contactName">
         <input
           id="contactName"
           name="name"
           type="text"
-          placeholder="Your name"
+          placeholder="Your full name"
           required
           className={inputBase}
         />
@@ -57,15 +57,18 @@ export default function ContactForm() {
           id="contactMessage"
           name="message"
           rows={5}
-          placeholder="How can we help you?"
+          placeholder="Where are you going, when, and how many people are travelling?"
           required
           className={inputBase}
         />
       </Field>
 
-      <Button type="submit" variant="primary" className="w-full">
-        Send Message
-      </Button>
+      <div>
+        <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
+          {/* <WhatsAppIcon /> */}
+          Send Message
+        </Button>
+      </div>
 
       {message && <LeadSentNotice message={message} subject={SUBJECT} />}
     </form>

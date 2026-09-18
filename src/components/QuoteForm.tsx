@@ -16,9 +16,9 @@ const vehicleTypes = [
 ];
 
 const tripTypes = [
-  { value: "one-way", label: "One-Way" },
-  { value: "round-trip", label: "Round Trip" },
-  { value: "multi-day", label: "Multi-Day" },
+  { value: "one-way", label: "One-way" },
+  { value: "round-trip", label: "Round trip" },
+  { value: "multi-day", label: "Multi-day" },
 ];
 
 type Option = { value: string; label: string };
@@ -61,22 +61,22 @@ export default function QuoteForm() {
 
   return (
     <form
-      className="grid gap-6 sm:grid-cols-2"
+      className="grid gap-5 sm:grid-cols-2 sm:gap-6"
       aria-label="Request a quote form"
       onSubmit={handleSubmit}
     >
-      <Field label="Full Name" htmlFor="fullName" className="sm:col-span-2">
+      <Field label="Full name" htmlFor="fullName" className="sm:col-span-2">
         <input
           id="fullName"
           name="fullName"
           type="text"
-          placeholder="John Doe"
+          placeholder="Your full name"
           required
           className={inputBase}
         />
       </Field>
 
-      <Field label="Phone Number" htmlFor="phone">
+      <Field label="Phone number" htmlFor="phone">
         <input
           id="phone"
           name="phone"
@@ -87,7 +87,7 @@ export default function QuoteForm() {
         />
       </Field>
 
-      <Field label="Email Address" htmlFor="email">
+      <Field label="Email address" htmlFor="email" hint="(optional)">
         <input
           id="email"
           name="email"
@@ -97,12 +97,12 @@ export default function QuoteForm() {
         />
       </Field>
 
-      <Field label="Pickup Location" htmlFor="pickup">
+      <Field label="Pickup location" htmlFor="pickup">
         <input
           id="pickup"
           name="pickup"
           type="text"
-          placeholder="e.g. Lagos, Ikeja"
+          placeholder="e.g. Asaba Airport"
           required
           className={inputBase}
         />
@@ -113,13 +113,13 @@ export default function QuoteForm() {
           id="destination"
           name="destination"
           type="text"
-          placeholder="e.g. Abuja, Wuse"
+          placeholder="e.g. Onitsha, Anambra"
           required
           className={inputBase}
         />
       </Field>
 
-      <Field label="Date & Time" htmlFor="datetime">
+      <Field label="Pickup date and time" htmlFor="datetime">
         <input
           id="datetime"
           name="datetime"
@@ -129,7 +129,7 @@ export default function QuoteForm() {
         />
       </Field>
 
-      <Field label="Vehicle Type" htmlFor="vehicleType">
+      <Field label="Vehicle type" htmlFor="vehicleType">
         <select id="vehicleType" name="vehicleType" required className={inputBase} defaultValue="">
           <option value="" disabled>
             Select vehicle
@@ -142,7 +142,7 @@ export default function QuoteForm() {
         </select>
       </Field>
 
-      <Field label="Trip Type" htmlFor="tripType">
+      <Field label="Trip type" htmlFor="tripType">
         <select id="tripType" name="tripType" required className={inputBase} defaultValue="">
           <option value="" disabled>
             Select trip type
@@ -155,20 +155,24 @@ export default function QuoteForm() {
         </select>
       </Field>
 
-      <Field label="Additional Notes" htmlFor="notes" className="sm:col-span-2">
+      <Field label="Anything else we should know" htmlFor="notes" hint="(optional)" className="sm:col-span-2">
         <textarea
           id="notes"
           name="notes"
           rows={4}
-          placeholder="Any special requirements or details..."
+          placeholder="Number of passengers, luggage, a return date, or a flight number to track"
           className={inputBase}
         />
       </Field>
 
       <div className="sm:col-span-2">
-        <Button type="submit" variant="primary" className="w-full">
-          Submit Quote Request
+        <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
+          <WhatsAppIcon />
+          Send request on WhatsApp
         </Button>
+        <p className="mt-3 text-sm text-text-muted">
+          Opens WhatsApp with your details filled in. Nothing is stored on this site.
+        </p>
       </div>
 
       {message && (

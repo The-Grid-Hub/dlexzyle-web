@@ -47,6 +47,10 @@ function CollageGrid({ photos, sizes }: { photos: Collage; sizes: string }) {
   );
 }
 
+/**
+ * A photo with a heading and copy beneath it. There is no box around it:
+ * the photo frame carries the radius and the text sits on the page.
+ */
 export default function PhotoCard({
   title,
   image,
@@ -54,16 +58,18 @@ export default function PhotoCard({
   sizes = "(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw",
 }: PhotoCardProps) {
   return (
-    <div className="overflow-hidden rounded-[12px] bg-white shadow-sm">
-      {Array.isArray(image) ? (
-        <CollageGrid photos={image} sizes={sizes} />
-      ) : (
-        <div className="relative aspect-[3/2] bg-brand-light">
-          <FillImage photo={image} sizes={sizes} />
-        </div>
-      )}
-      <div className="p-6">
-        <h3 className="text-lg font-semibold text-brand-green">{title}</h3>
+    <div>
+      <div className="overflow-hidden rounded-[12px] bg-brand-light">
+        {Array.isArray(image) ? (
+          <CollageGrid photos={image} sizes={sizes} />
+        ) : (
+          <div className="relative aspect-[3/2]">
+            <FillImage photo={image} sizes={sizes} />
+          </div>
+        )}
+      </div>
+      <div className="pt-5">
+        <h3 className="text-lg font-semibold text-text-primary">{title}</h3>
         {children}
       </div>
     </div>
