@@ -28,52 +28,6 @@ const menuContacts = [
   { label: site.email, href: `mailto:${site.email}`, icon: false },
 ];
 
-let swatch: CanvasRenderingContext2D | null = null;
-const measured = new Map<string, [luma: number, alpha: number]>();
-
-/**
- * Luma and alpha (both 0-1) of any CSS colour. Painting it onto a 1px canvas
- * handles the `oklab()` / `color-mix()` forms Tailwind emits.
- */
-function measure(color: string): [luma: number, alpha: number] {
-  let result = measured.get(color);
-  if (!result) {
-    swatch ??= document.createElement("canvas").getContext("2d", { willReadFrequently: true });
-    if (!swatch) return [1, 0];
-    swatch.clearRect(0, 0, 1, 1);
-    swatch.fillStyle = color;
-    swatch.fillRect(0, 0, 1, 1);
-    const [r, g, b, a] = swatch.getImageData(0, 0, 1, 1).data;
-    result = [(0.2126 * r + 0.7152 * g + 0.0722 * b) / 255, a / 255];
-    measured.set(color, result);
-  }
-  return result;
-}
-
-/**
- * Whether the surface behind the logo is dark. Walks down the elements under
- * the logo's resting centre (ignoring the header and fixed overlays such as
- * the preloader and curtain) to the first one that settles it: a
- * `data-header="dark" | "light"` attribute, a photo or video, or a background
- * colour that is at least half opaque. The page itself is white.
- */
-function isDarkBehind(logo: HTMLElement, header: HTMLElement): boolean {
-  const box = logo.getBoundingClientRect();
-  // Measure from the header's resting position, not mid-way through hiding.
-  const y = box.top - header.getBoundingClientRect().top + box.height / 2;
-  const x = box.left + box.width / 2;
-  for (const el of document.elementsFromPoint(x, y)) {
-    if (header.contains(el)) continue;
-    if (el instanceof HTMLElement && el.dataset.header) return el.dataset.header === "dark";
-    if (el instanceof HTMLImageElement || el instanceof HTMLVideoElement) return true;
-    const style = getComputedStyle(el);
-    if (style.position === "fixed") continue;
-    const [luma, alpha] = measure(style.backgroundColor);
-    if (alpha >= 0.5) return luma < 0.45;
-  }
-  return false;
-}
-
 /**
  * Fixed header over the page: logo left, the menu in a pale pill, and the
  * quote button. It slides in during the intro (`data-intro="header"`), hides
@@ -82,15 +36,12 @@ function isDarkBehind(logo: HTMLElement, header: HTMLElement): boolean {
  * that wipes down from the header with the page links, the quote button and
  * the contact details. The panel is a sibling of the header, not a child,
  * because the header's intro transform would otherwise make it the panel's
- * containing block and cut it to the header's height. The logo keeps its own
- * white box everywhere; the name beside it turns white over dark surfaces,
- * including the open menu.
+ * containing block and cut it to the header's height. The logo mark and the
+ * name share one pale box, so the name stays brand green over any surface.
  */
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [onDark, setOnDark] = useState(false);
   const header = useRef<HTMLElement>(null);
-  const logo = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
 
   // Close the phone menu when the route changes (state adjusted during render,
@@ -139,37 +90,18 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Re-check what is behind the logo whenever the page moves under it. This
-  // runs with motion off too: ScrollTrigger works on native scroll.
-  useEffect(() => {
-    const check = () => {
-      if (header.current && logo.current) setOnDark(isDarkBehind(logo.current, header.current));
-    };
-    const trigger = ScrollTrigger.create({ start: 0, end: "max", onUpdate: check, onRefresh: check });
-    const frame = requestAnimationFrame(check);
-    return () => {
-      trigger.kill();
-      cancelAnimationFrame(frame);
-    };
-  }, [pathname]);
-
-  // The phone menu is a dark panel, so the name goes white over it.
-  const dark = onDark || open;
-
   return (
     <>
       <header ref={header} data-intro="header" className="fixed inset-x-0 top-0 z-50">
         <Container className="flex items-center justify-between gap-4 py-4 sm:py-5">
-          <Link ref={logo} href="/" className="relative z-10 flex items-center gap-3" aria-label="D'Lexzyle Enterprise home">
-            {/* The logo file is 296x200; keep that ratio so it isn't squashed. */}
-            <Image src="/logo_.png" alt="" width={296} height={200} className="h-10 w-auto" priority />
-            <span
-              className={`font-display whitespace-nowrap text-[26px] transition-colors duration-300 ${
-                dark ? "text-white" : "text-text-primary"
-              }`}
-            >
-              D&apos;Lexzyle Enterprise
-            </span>
+          <Link
+            href="/"
+            className="relative z-10 flex h-14 items-center gap-2 rounded-[10px] bg-brand-mist pl-3 pr-4"
+            aria-label="D'Lexzyle Enterprise home"
+          >
+            {/* The mark is 246x139 with no white field; keep that ratio so it isn't squashed. */}
+            <Image src="/logo-mark.png" alt="" width={246} height={139} className="h-8 w-auto" priority />
+            <span className="font-display whitespace-nowrap text-[clamp(1.0625rem,5.4vw,1.625rem)] text-brand-green">D&apos;Lexzyle Enterprise</span>
           </Link>
 
           <nav
