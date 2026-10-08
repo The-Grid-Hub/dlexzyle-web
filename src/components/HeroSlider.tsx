@@ -11,8 +11,8 @@ import { homeServices } from "@/lib/services";
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * The white card in the hero that fades through the six services on a
- * five-second timer, with an "01/06" counter and a progress bar. Hovering
+ * The white card in the hero that fades through the home services on a
+ * five-second timer, with an "01/07" counter and a progress bar. Hovering
  * pauses it. Desktop only: phones get a plain "Our services" button instead.
  */
 export default function HeroSlider() {

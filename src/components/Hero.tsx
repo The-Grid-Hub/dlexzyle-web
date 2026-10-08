@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="relative mb-16 flex items-center justify-between pb-3 font-display text-[20px] sm:mb-24 sm:text-[26px] lg:text-[34px]">
             <p data-intro="chars">{site.name}</p>
             <p data-intro="chars" className="text-right">
-              Car hire and leasing since {established}
+              Car hire since {established}. Now hotel stays
             </p>
             <span data-intro="line" className="absolute bottom-0 left-0 h-px w-0 bg-white/40" aria-hidden="true" />
           </div>

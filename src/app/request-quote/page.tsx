@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/Container";
 import PhotoBanner from "@/components/PhotoBanner";
 import QuoteForm from "@/components/QuoteForm";
@@ -62,6 +63,15 @@ export default function RequestQuotePage() {
                   </a>
                 </li>
               </ul>
+
+              <h2 className="mt-10 text-lg font-semibold text-text-primary">Need a room as well?</h2>
+              <p className="mt-2 text-[15px] leading-relaxed text-text-muted">
+                We now offer hotel stays.{" "}
+                <Link href="/hotel#book" className="font-medium text-brand-green underline underline-offset-4">
+                  Book a stay
+                </Link>{" "}
+                and we will arrange the pickup with it.
+              </p>
             </aside>
           </div>
         </Container>

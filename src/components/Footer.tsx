@@ -10,6 +10,7 @@ const footerLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Hotel", href: "/hotel" },
   { label: "Contact", href: "/contact" },
   { label: "Request a quote", href: "/request-quote" },
 ];
@@ -41,9 +42,9 @@ export default function Footer() {
               <span className="font-display text-[26px]">{site.name}</span>
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-white/70">
-              Car hire with a driver, and long-term vehicle leasing, for
-              organisations and families across the South-South and South-East,
-              and across Nigeria.
+              Car hire with a driver, long-term vehicle leasing and hotel stays,
+              for organisations and families across the South-South and
+              South-East, and across Nigeria.
             </p>
           </div>
 

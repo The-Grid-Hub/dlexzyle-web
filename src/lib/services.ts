@@ -1,8 +1,9 @@
 /**
- * The six services shown on the home page: in the hero slider, the stacked
- * service cards and the footer's Services column. They are a finer split of the
- * three categories on the Services page, so each links to one of that page's
- * section ids (`corporate`, `private`, `leasing`).
+ * The seven services shown on the home page: in the hero slider, the stacked
+ * service cards and the footer's Services column. The car services are a finer
+ * split of the three categories on the Services page, so each links to one of
+ * that page's section ids (`corporate`, `private`, `leasing`); hotel stays
+ * link to their own page.
  */
 export type HomeService = {
   title: string;
@@ -16,6 +17,11 @@ export const homeServices: HomeService[] = [
     title: "Corporate and institutional hire",
     tagline: "vehicles and vetted drivers for agencies, banks, hotels and NGOs, by the day or the month.",
     href: "/services#corporate",
+  },
+  {
+    title: "Hotel stays",
+    tagline: "a suite with its own lounge, and the airport pickup arranged with the room.",
+    href: "/hotel",
   },
   {
     title: "Airport transfers",

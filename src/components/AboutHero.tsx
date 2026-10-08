@@ -45,6 +45,7 @@ export default function AboutHero() {
           >
             <span>Car hire.</span>
             <span>Leasing.</span>
+            <span>Hotel stays.</span>
             <span className="basis-full lg:basis-auto lg:pl-8">{site.name}</span>
           </p>
           <span data-intro="line" className="absolute bottom-0 left-0 h-px w-0 bg-white/40" aria-hidden="true" />

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s | D'Lexzyle Enterprise",
   },
   description:
-    "Safe, reliable car hire and vehicle leasing in Asaba, Delta State, with a vetted driver on every hire. D'Lexzyle Enterprise serves individuals, companies, government agencies and NGOs across the South-South and South-East, and across Nigeria.",
+    "Safe, reliable car hire, vehicle leasing and hotel stays in Asaba, Delta State, with a vetted driver on every hire. D'Lexzyle Enterprise serves individuals, companies, government agencies and NGOs across the South-South and South-East, and across Nigeria.",
   alternates: {
     canonical: "/",
   },

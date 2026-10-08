@@ -12,7 +12,7 @@ import { homeServices } from "@/lib/services";
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * The six numbered service cards. On wide screens they are stacked in one
+ * The numbered service cards, one per entry in `homeServices`. On wide screens they are stacked in one
  * frame: the section pins and, as you scroll, each card slides up over the
  * previous one while that one shrinks back. The bar beside the heading tracks
  * progress. On phones, and with reduced motion, they are a plain column.

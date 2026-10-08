@@ -33,7 +33,9 @@ export default function AboutPanel() {
                 driver and an inspected, well-maintained vehicle, so you travel
                 in safe hands, whether it is an airport run or a two-year lease,
                 for individuals, companies, government agencies and NGOs across
-                the South-South and South-East, and across Nigeria.
+                the South-South and South-East, and across Nigeria. We now run
+                hotel stays too, so a trip can end in a suite we have readied
+                for you.
               </p>
               <div className="mt-10 sm:mt-14">
                 <Button href="/about" variant="light">

@@ -3,6 +3,7 @@ import AboutPanel from "@/components/AboutPanel";
 import Advantages from "@/components/Advantages";
 import ServicesStack from "@/components/ServicesStack";
 import FleetOverview from "@/components/FleetOverview";
+import HotelTeaser from "@/components/HotelTeaser";
 import Clients from "@/components/Clients";
 import HomeContact from "@/components/HomeContact";
 import PinVideo from "@/components/motion/PinVideo";
@@ -23,6 +24,7 @@ export default function Home() {
 
       <Advantages />
       <ServicesStack />
+      <HotelTeaser />
       {/* <FleetOverview /> */}
 
       <div className="relative isolate overflow-clip bg-brand-ink">

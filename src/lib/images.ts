@@ -9,6 +9,11 @@ import fleetSaloon from "@/assets/images/fleet-saloon.jpg";
 import fleetSeater from "@/assets/images/fleet-seater.jpg";
 import fleetSienna from "@/assets/images/fleet-sienna.jpg";
 import heroDriver from "@/assets/images/hero-driver.jpg";
+import hotelBathroom from "@/assets/images/hotel-bathroom.jpg";
+import hotelBedroom from "@/assets/images/hotel-bedroom.jpg";
+import hotelDesk from "@/assets/images/hotel-desk.jpg";
+import hotelDoorway from "@/assets/images/hotel-doorway.jpg";
+import hotelLounge from "@/assets/images/hotel-lounge.jpg";
 import highwayLagos from "@/assets/images/highway-lagos.jpg";
 import privateMinivan from "@/assets/images/private-minivan.jpg";
 import privateSuv from "@/assets/images/private-suv.jpg";
@@ -124,6 +129,45 @@ export const photos = {
     src: fleetCamryFront,
     alt: "Black Toyota Camry saloon seen from the front",
     position: "center",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  // The hotel suite, taken from the walkthrough video (720x1280 portrait
+  // frames), so frame them portrait. Check every frame for people, including
+  // reflections in the mirror and the TV, before adding another.
+  hotelLounge: {
+    src: hotelLounge,
+    alt: "Suite lounge with a tufted brown sofa, an orange armchair and a wooden coffee table",
+    position: "center 60%",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  hotelBedroom: {
+    src: hotelBedroom,
+    alt: "King-size bed with gold cushions against a padded headboard and wood-panelled wall",
+    position: "center 65%",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  hotelDoorway: {
+    src: hotelDoorway,
+    alt: "The suite bedroom seen through its open door",
+    position: "center 45%",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  hotelDesk: {
+    src: hotelDesk,
+    alt: "Wooden work desk with two lamps, a kettle, a tea tray and bottled water",
+    position: "center 50%",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  hotelBathroom: {
+    src: hotelBathroom,
+    // Cropped at the sides to drop the door frame the walkthrough passes through.
+    alt: "En-suite bathroom with a walk-in glass shower, towel rail and basin",
+    position: "center 40%",
     credit: "D'Lexzyle Enterprise",
     creditUrl: "",
   },
