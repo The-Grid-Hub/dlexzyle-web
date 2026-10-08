@@ -38,10 +38,26 @@ export default function StructuredData() {
     sameAs: [`https://wa.me/${site.whatsapp}`],
   };
 
+  // Tells search engines the site's name, so results show it instead of the domain.
+  const webSite = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    name: site.name,
+    alternateName: ["D'Lexzyle", "DLexzyle Enterprise"],
+    url: site.url,
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+    </>
   );
 }
