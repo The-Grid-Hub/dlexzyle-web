@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   // Makes every relative URL below (OG images, canonicals) resolve to an
   // absolute one, which crawlers require. Driven by `site.url`.
   metadataBase: new URL(site.url),
+  applicationName: site.name,
   title: {
     default: "Car Hire in Asaba, Delta State | D'Lexzyle Enterprise",
     template: "%s | D'Lexzyle Enterprise",
