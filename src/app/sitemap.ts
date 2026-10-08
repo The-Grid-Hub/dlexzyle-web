@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
  * Every route on the site. Not shared with the nav — if you add a page, add it
  * here as well as to `Navbar` and `Footer`.
  */
-const routes = ["", "/services", "/about", "/request-quote", "/contact"] as const;
+const routes = ["", "/services", "/hotel", "/about", "/request-quote", "/contact"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Static export, so this is the build date.
