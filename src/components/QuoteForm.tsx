@@ -37,10 +37,10 @@ function formatDateTime(value: string) {
 export default function QuoteForm() {
   const [message, setMessage] = useState<string | null>(null);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const data = new FormData(event.currentTarget);
+  // A function `action`, not onSubmit: React server-renders it as an action that
+  // blocks the browser's own submit, so a click before hydration can't fall
+  // back to a GET that puts the visitor's details in the URL.
+  function sendLead(data: FormData) {
     const value = (name: string) => String(data.get(name) ?? "");
 
     const body = formatLead(SUBJECT, [
@@ -63,7 +63,7 @@ export default function QuoteForm() {
     <form
       className="grid gap-5 sm:grid-cols-2 sm:gap-6"
       aria-label="Request a quote form"
-      onSubmit={handleSubmit}
+      action={sendLead}
     >
       <Field label="Full name" htmlFor="fullName" className="sm:col-span-2">
         <input

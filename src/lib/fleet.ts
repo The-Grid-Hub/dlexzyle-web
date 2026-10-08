@@ -1,4 +1,4 @@
-import type { Photo } from "./images";
+import { photos, type Photo } from "./images";
 
 export type Vehicle = {
   id: "saloon" | "sienna" | "seater";
@@ -32,6 +32,7 @@ export const fleet: Vehicle[] = [
     luggage: "2 large suitcases",
     bestFor: "Executive travel, airport pickups",
     amenities: "Air conditioning, phone charging",
+    photo: photos.fleetCamryBlack,
   },
   {
     id: "sienna",

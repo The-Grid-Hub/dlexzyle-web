@@ -69,13 +69,13 @@ export const intro = {
     "is a car hire and vehicle leasing company in Asaba, with a professional driver on every hire.",
   paragraphs: [
     "We serve individuals, companies, government agencies and NGOs across the South-South and South-East, and across Nigeria, from a one-hour airport run to a two-year lease.",
-    "Safety comes first on every trip. Our drivers are vetted, trained and experienced on long interstate routes, every vehicle is inspected before it leaves the yard, and a named contact stays reachable for the whole journey.",
+    "Our drivers are vetted, trained and experienced on long interstate routes, and every vehicle is inspected before it leaves the yard.",
   ],
 };
 
 /** PLACEHOLDER. The large statement read word by word after the hero. Two short paragraphs. */
 export const statement = [
-  "Turn up on time, in a clean car, with a driver who knows the road and gets you there safely. That was the promise when we started, and it still is.",
+  "Turn up on time, in a clean car, with a driver who knows the road. That was the promise when we started, and it still is.",
   "Development organisations, banks, hotels and families across thirty-six states in Nigeria, including FCT, book us because we keep it.",
 ];
 
@@ -99,7 +99,7 @@ export const storyPanel = {
 export const goals = [
   {
     verb: "Deliver",
-    detail: "every passenger safely and on time, in a clean, inspected vehicle, on every trip.",
+    detail: "every passenger on time, in a clean, inspected vehicle, on every trip.",
   },
   {
     verb: "Handle",
@@ -117,7 +117,7 @@ export const goals = [
  * with `standards` below, so change all three together.
  */
 export const keyAdvantages = [
-  "Passenger safety first, and guaranteed punctuality, on every hire.",
+  "Guaranteed punctuality and passenger safety on every hire.",
   "Competitive pricing and clear terms, with nothing hidden in the quote.",
   "Tailor-made hire and leasing for organisations of any size.",
   "Flight-tracked airport pickups and a named contact for every booking.",
@@ -150,13 +150,10 @@ export const facts = [
   //   value: "12",
   //   detail: "Twelve vehicles across saloon, SUV and bus, all with a driver.",
   // },
+  
   {
     value: "5,000+",
     detail: "Over 5,000 trips completed across thirty-six states in Nigeria, including FCT.",
-  },
-  {
-    value: "100%",
-    detail: `Every passenger delivered safely, on every trip, since ${established}.`,
   },
 ];
 
@@ -188,11 +185,6 @@ export const standards = [
         title: "Licensed and vetted",
         detail:
           "Every driver holds a valid driver's licence and passes identity and guarantor checks before joining.",
-      },
-      {
-        title: "Reachable for the whole trip",
-        detail:
-          "You have the driver's number and a manager's number from pickup to drop-off, and the driver checks in on long journeys.",
       },
       {
         title: "Experienced on long routes",
@@ -320,11 +312,6 @@ export const faqs = [
     question: "Do your vehicles come with a driver?",
     answer:
       "Yes. Every hire includes a professional driver. We don't offer self-drive.",
-  },
-  {
-    question: "How do you keep passengers safe?",
-    answer:
-      "Every driver is licensed, vetted and experienced on the routes we cover, every vehicle is inspected before it leaves the yard, and you have the driver's and a manager's number for the whole trip. On long journeys we plan the route and departure time with you in advance.",
   },
   {
     question: "Do you do airport pickups?",

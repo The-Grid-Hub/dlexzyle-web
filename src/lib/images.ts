@@ -2,6 +2,9 @@ import type { StaticImageData } from "next/image";
 import airportVan from "@/assets/images/airport-van.jpg";
 import corporate from "@/assets/images/corporate.jpg";
 import driverPortrait from "@/assets/images/driver-portrait.jpg";
+import fleetCamryBlack from "@/assets/images/fleet-camry-black.jpg";
+import fleetCamryFront from "@/assets/images/fleet-camry-front.jpg";
+import fleetCamryGrey from "@/assets/images/fleet-camry-grey.jpg";
 import fleetSaloon from "@/assets/images/fleet-saloon.jpg";
 import fleetSeater from "@/assets/images/fleet-seater.jpg";
 import fleetSienna from "@/assets/images/fleet-sienna.jpg";
@@ -100,6 +103,29 @@ export const photos = {
     position: "center 65%",
     credit: "Mumtaz Niazi",
     creditUrl: "https://www.pexels.com/photo/white-toyota-corolla-on-beachfront-37620310/",
+  },
+  // Our own Toyota Camrys. The number plates (and any others in frame) are
+  // blurred in the files themselves; keep it that way for any replacement.
+  fleetCamryBlack: {
+    src: fleetCamryBlack,
+    alt: "Black Toyota Camry saloon seen from the rear",
+    position: "center 55%",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  fleetCamryGrey: {
+    src: fleetCamryGrey,
+    alt: "Silver-grey Toyota Camry XLE V6 saloon seen from the rear",
+    position: "center 55%",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
+  },
+  fleetCamryFront: {
+    src: fleetCamryFront,
+    alt: "Black Toyota Camry saloon seen from the front",
+    position: "center",
+    credit: "D'Lexzyle Enterprise",
+    creditUrl: "",
   },
   fleetSienna: {
     src: fleetSienna,
