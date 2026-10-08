@@ -12,10 +12,10 @@ const SUBJECT = "New enquiry";
 export default function ContactForm() {
   const [message, setMessage] = useState<string | null>(null);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const data = new FormData(event.currentTarget);
+  // A function `action`, not onSubmit: React server-renders it as an action that
+  // blocks the browser's own submit, so a click before hydration can't fall
+  // back to a GET that puts the visitor's details in the URL.
+  function sendLead(data: FormData) {
     const value = (name: string) => String(data.get(name) ?? "");
 
     const body = formatLead(SUBJECT, [
@@ -29,7 +29,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="grid gap-5" aria-label="Contact form" onSubmit={handleSubmit}>
+    <form className="grid gap-5" aria-label="Contact form" action={sendLead}>
       <Field label="Name" htmlFor="contactName">
         <input
           id="contactName"

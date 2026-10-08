@@ -19,9 +19,10 @@ const input =
 export default function LeadForm() {
   const [message, setMessage] = useState<string | null>(null);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  // A function `action`, not onSubmit: React server-renders it as an action that
+  // blocks the browser's own submit, so a click before hydration can't fall
+  // back to a GET that puts the visitor's details in the URL.
+  function sendLead(data: FormData) {
     const value = (name: string) => String(data.get(name) ?? "");
     const body = formatLead(SUBJECT, [
       ["Name", value("name")],
@@ -33,7 +34,7 @@ export default function LeadForm() {
   }
 
   return (
-    <form className="grid gap-4" aria-label="Quick enquiry form" onSubmit={handleSubmit}>
+    <form className="grid gap-4" aria-label="Quick enquiry form" action={sendLead}>
       <div className="grid gap-4 md:grid-cols-3">
         <Field label="Full name" htmlFor="leadName">
           <input id="leadName" name="name" type="text" required autoComplete="name" className={input} />
